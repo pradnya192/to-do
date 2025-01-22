@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To-Do Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://ai-public.creatie.ai/gen_page/tailwind-custom.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com/3.4.5?plugins=forms@0.5.7,typography@0.5.13,aspect-ratio@0.4.2,container-queries@0.1.1"></script>
+    <script src="https://ai-public.creatie.ai/gen_page/tailwind-config.min.js" data-color="#000000" data-border-radius="small"></script>
+</head>
+<body class="bg-gray-50 min-h-screen font-['Inter']">
+    <div class="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <!-- Header Section -->
+        <header class="mb-8">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900">My To-Do Dashboard</h1>
+                    <p class="text-gray-600 mt-1" id="currentDate"></p>
+                </div>
+                <div class="bg-white rounded-lg shadow p-4">
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <p class="text-sm text-gray-600">Total Tasks</p>
+                            <p class="text-2xl font-semibold text-custom" id="totalTasks">0</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">Completed</p>
+                            <p class="text-2xl font-semibold text-green-600" id="completedTasks">0</p>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-600">Pending</p>
+                            <p class="text-2xl font-semibold text-yellow-600" id="pendingTasks">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- Task List Section -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <div class="flex gap-4 mb-6">
+                        <select class="flex-1 border-gray-300 rounded-button focus:border-custom focus:ring-custom" id="filterTasks">
+                            <option value="all">All Tasks</option>
+                            <option value="completed">Completed Tasks</option>
+                            <option value="pending">Pending Tasks</option>
+                        </select>
+                        <select class="flex-1 border-gray-300 rounded-button focus:border-custom focus:ring-custom" id="filterPriority">
+                            <option value="all">All Priorities</option>
+                            <option value="high">High Priority</option>
+                            <option value="medium">Medium Priority</option>
+                            <option value="low">Low Priority</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-4" id="taskList">
+                        <!-- Example Task -->
+                        <div class="flex items-center justify-between p-4 border rounded-lg hover:shadow-sm transition-shadow">
+                            <div class="flex items-center gap-4">
+                                <input type="checkbox" class="rounded text-custom focus:ring-custom">
+                                <div>
+                                    <h3 class="font-medium">Complete project presentation</h3>
+                                    <p class="text-sm text-gray-600">Due: Apr 15, 2024</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-4">
+                                <span class="px-2 py-1 text-xs font-medium rounded-full bg-red-100 text-red-800">High</span>
+                                <button class="text-gray-400 hover:text-red-600"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Task Section -->
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-lg shadow p-6">
+                    <h2 class="text-lg font-semibold mb-4">Add New Task</h2>
+                    <form id="addTaskForm" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Task Title</label>
+                            <input type="text" class="w-full border-gray-300 rounded-button focus:border-custom focus:ring-custom" placeholder="Enter task title">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Priority</label>
+                            <select class="w-full border-gray-300 rounded-button focus:border-custom focus:ring-custom">
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-1">Due Date</label>
+                            <input type="date" class="w-full border-gray-300 rounded-button focus:border-custom focus:ring-custom">
+                        </div>
+                        <button type="submit" class="w-full bg-custom text-white rounded-button py-2 hover:bg-custom/90 transition-colors">
+                            Add Task
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
